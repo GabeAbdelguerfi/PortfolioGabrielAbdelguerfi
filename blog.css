@@ -1,0 +1,21 @@
+body{
+	background-color: black;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#overview{
+    background-color: coral;
+}
+
+a:hover {
+    background-color: green;
+}
+
+footer{
+	position: absolute;
+	width:100%;
+	margin:0;
+}
