@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gabriel Abdelguerfi's Portfilio Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+	<script src="./main.js"></script>
+    
+    <style>
+    section:before{
+    height: 54px;
+    content: "";
+    display: block;
+        }
+    
+    section{
+        min-height:100vh;
+        }
+    
+    #section-showcase{
+        background-image: url(./images/starscape.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+        
+        html{
+            scroll-behavior:smooth;
+        }
+    </style>
+</head>
+<body>
+<nav id="top-navbar" class='navbar fixed-top navbar-expand-lg navbar-dark bg-dark'>
+    <a class='navbar-brand' href="#section-showcase"><strong>Gabe's Portfolio</strong></a>
+    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#menu'><span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse' id='menu'>
+       <ul class='nav navbar-nav ml-auto'>
+           <li class='nav-item'><a class='nav-link' href="#section-home">Home</a></li>
+           <li class='nav-item'><a class='nav-link' href="#section-about">About</a></li>
+           <li class='nav-item'><a class='nav-link' href="#section-projects">Projects</a></li> 
+           <li class='nav-item'><a class='nav-link' href="#section-blog">Blog</a></li> 
+           <li class='nav-item'><a class='nav-link' href="#section-contact">Contact</a></li>       
+       </ul>
+    </div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+ <section id="section-showcase" class='jumbotron d-flex align-items-center bg-primary'>
+<div class='container text-center text-dark'>
+	<h1>Gabriel Abdelguerfi's Portfilio Page</h1>
+	<p>Here is a bit about me and my skillset.</p>
+</div>
+</section>
+<aside id="sidebar">
+	<div class='bg-dark text-light float-right col-4 pt-4 mt-4'>
+		<h3>News: </h3>
+		<p>This is a place for some placeholder text.</p>
+	</div>
+</aside>
+<div class='container-fluid'>
+<section id="section-home">
+	<h1>Welcome</h1>
+	<hr>
+	<p>
+		Hello, This page is a reference point for anyone hoping to learn a bit about me and my skillset.
+	</p>
+</section>
+
+<section id="section-about">
+	<h1> About</h1>
+	<hr>
+	<div class='row'>
+        <div class="col-lg-2 col-sm-4">
+		<img src="images/hezu.jpg" class='img-fluid'>
+	</div>
+	<div class="col-lg-10 col-sm-8">
+		<h4>Gabriel Abdelguerfi</h4>
+		<p>Hi, I am a computer science major studying at the University of New Orleans.
+        I am finishing my final semester before I graduate. I am an intern at NIWC (Naval Information Warfare Center) where I will continue to work when I graduate.</p>
+	</div>
+</div>
+	<table class='table mt-4'>
+		<thead>
+			<tr>
+				<th colspan="2" class='text-center'>Technical Skills</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Programming tools</th>
+				<td>HTML, CSS, Java, PL/SQL </td>
+			</tr>
+			<tr>
+				<th>Database tools</th>
+				<td>MongoDB, Mongoose, SQL</td>
+			</tr>
+			<tr>
+				<th>Version Control & Deployment tools</th>
+				<td>git, github, gitlab</td>
+			</tr>
+			<tr>
+				<th>Architecture & Design</th>
+				<td>OOP, MEAN Stack, Rest, Agile, TDD</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+<section id="section-projects">
+	<h1>Projects</h1>
+	<hr>
+	<p>Summary of some of the projects I have worked on.</p>
+	<ul>
+		<li>A Group chat application in Java.</li>
+		<li>Generating Password and OTP in Java.</li>
+		<li>Full stack project management system in Ruby.</li>
+		<li>Currency Converter.</li>
+	</ul>
+</section>
+
+<section id="section-blog">
+	<h1>Blog</h1>
+	<hr>
+	<p>My blog post my experience studying abroad and what I learned in the process .</p>
+	<hr>
+	<article class='container'>
+		<h3>Studying Abroad</h3>
+		<small>Post by Gabriel Abdelguerfi on 2/2/2020</small>
+		<p>If you are interested in studying abroad. Here is a link to a blog post.</p>
+		<a class='btn btn-outline-dark' href="../index.html">Read More</a>
+		<hr>
+	</article>
+</section>
+
+<section id="section-contact">
+	<div class='ml-4'>
+	<h1>Contact me here</h1>
+	<form action="https://formspree.io/G123abe@gmail.com" method="POST" class="mt-4">
+ 	<label class='font-weight-bold'>Email
+ 		<input type="email" name="email" class="email" placeholder="Your Email">
+ 		</label>
+	<label class='font-weight-bold'>Subject
+	<input type="text" name="subject" class="subject" placeholder="Enter a subject">
+	</label>
+	<label class='font-weight-bold'>Message
+	<textarea  name="message" class="message" placeholder="Write something..."></textarea>
+	</label>
+	<div class="status"></div>
+	<button type="submit" class="submit">Send Message</button>
+	</div>
+	</form>
+</section>
+    </div>
+<footer class='bg-dark'>
+	<div class='container text-primary text-center'>
+		<p>Copyright &copy; 2020 Gabriel Abdelguerfi</p>
+	</div>
+</footer>
+</html>
