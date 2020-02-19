@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('.submit').click(function(event){
+	$('.submitForm').click(function(event){
 
 		var email = $('.email').val()
 		var subject = $('.subject').val()

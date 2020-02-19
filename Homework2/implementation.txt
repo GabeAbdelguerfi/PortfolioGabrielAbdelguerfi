@@ -1,0 +1,11 @@
+Gabriel Abdelguerfi
+https://github.com/GabeAbdelguerfi/PortfolioGabrielAbdelguerfi
+
+- added validation to contact form
+- users can sent me emails through this form
+- Installed node 
+- used formspree.io to submit the contact form
+- npm install serve -g
+- typed serve in terminal
+- can now fully submit a contact form.
+- restyled some of the css and html
