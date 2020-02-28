@@ -31,8 +31,14 @@ function giveClue(guess){
 
 function main(){
 	let now = Date.now();
-	if( now - then > 1000){
+	if( timeLeft <= 0 && gameover == false){
+		printGameOver('LOSE');
+	}
+	else if(now - then > 1000){
+		timeLeft--;
 		printDigits();
+		printAttemptsRemaining();
+		then = Date.now();
 	}
 	requestAnimationFrame(main);
 }

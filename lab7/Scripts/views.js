@@ -28,11 +28,4 @@ function printDigits(){
 	document.getElementById("digit-1s").src = `./images/${guess.ones}.png`;
 }
 
-function refresh(){
-	let now = Date.now();
-	if(now - then > 1000){
-		printAttemptsRemaining();
-		printDigits();
-	}
 	requestAnimationFrame(refresh);
-}
