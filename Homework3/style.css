@@ -1,0 +1,23 @@
+body{
+	text-align: center;
+}
+
+.item-title{
+	position: absolute;
+	font-weight: bold;
+	height: 50%;
+	}
+
+	.shop-item{
+		margin-top: 20px;
+	}
+
+	.cart-quantity{
+		margin-top: 50px;
+	}
+
+	.cart-item-title{
+		position:absolute;
+		text-align: center;
+		font-weight: bold;
+	}

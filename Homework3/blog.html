@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="blog.css"> 
+</head>
+<body>
+	<h2>Shopping Cart Application</h2>
+	<section id="inspiration">
+		<div class='p5'>
+			<h1>Why a Shopping Cart?</h1>
+			<p>I choose to build a shopping cart because we people are in stratic need of food and other resources. Canned food and toilet papper are no where to be found at a lot of stores so people might need to order these things online.</p>
+		</div>
+	</section>
+
+	<section id = 'implementation'>
+		<div>
+			<h3>The Implementation</h3>
+			I implemented a shopping cart app in which the user can choose to add multiple items to the shopping cart. The user can then select the quantity for each of the items. As the user selects items and changes there quantities the users total (price of their product) will automatically update. The user can also remove items from their shopping cart. The user can not enter NAN values for their quantity or try to use the down arrow to enter a negative quantity the number will automatically reset to 1 if they do so. You will get a popup message if you try to add the same item to the cart multiple times. When you refresh the screen you will get a empty shopping cart but the data from the previous shopping cart will be stores in the local storage api.
+		</div>
+		<img src="Images/Storage.PNG">
+		<img src="Images/grocery.PNG">
+		<img src="Images/total.PNG">
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
