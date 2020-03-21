@@ -1,0 +1,8 @@
+Shopping Cart
+I implemented a shopping cart app in which the user can choose to add multiple items
+ to the shopping cart. The user can then select the quantity for each of the items. 
+ As the user selects items and changes there quantities the users total (price of their product) will automatically update. 
+ The user can also remove items from their shopping cart. The user can not enter NAN values for their quantity or try to use 
+ the down arrow to enter a negative quantity the number will automatically reset to 1 if they do so. You will get a popup message 
+ if you try to add the same item to the cart multiple times. When you refresh the screen you will get a empty shopping cart but the
+ data from the previous shopping cart will be stores in the local storage api.
