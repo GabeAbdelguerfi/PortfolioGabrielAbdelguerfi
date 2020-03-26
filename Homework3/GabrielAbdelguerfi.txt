@@ -6,3 +6,4 @@ I implemented a shopping cart app in which the user can choose to add multiple i
  the down arrow to enter a negative quantity the number will automatically reset to 1 if they do so. You will get a popup message 
  if you try to add the same item to the cart multiple times. When you refresh the screen you will get a empty shopping cart but the
  data from the previous shopping cart will be stores in the local storage api.
+ https://gabeabdelguerfi.github.io/PortfolioGabrielAbdelguerfi/Homework3/index.html

@@ -1,5 +1,6 @@
 body{
 	text-align: center;
+	background-color: #E0FFFF;
 }
 
 .item-title{
@@ -20,4 +21,16 @@ body{
 		position:absolute;
 		text-align: center;
 		font-weight: bold;
+	}
+
+	img{
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	align-items: center
+	border-radius: 8px;
+	}
+
+	.shopping-cart{
+		background: grey;
 	}
