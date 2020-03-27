@@ -1,3 +1,7 @@
+var cartData = new Object();
+var data = localStorage.getItem("cartData");
+var newData = JSON.parse(data)
+console.log(newData)
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -5,12 +9,34 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
+    if(newData != null){
+    if(newData.potatoe > 0){
+       addItemToCart('Potatoes', '1.00', 'Images/Potatoe.jpg', newData.potatoe)
+       updatetotal();
+    }
+    if(newData.tp > 0){
+       addItemToCart('Toilet Papper', '14.99', 'Images/Papper.jpg', newData.tp)
+       updatetotal();
+    }
+
+    if(newData.apple > 0){
+       addItemToCart('Apple', '19.99', 'Images/Apple.jpg', newData.apple)
+       updatetotal();
+    }
+    if(newData.banana > 0){
+       addItemToCart('Banana', '.69', 'Images/Banana.jpg', newData.banana)
+       updatetotal();
+    }
+    if(newData.chicken > 0){
+       addItemToCart('Chicken Breast', '9.99', 'Images/Breast.png', newData.chicken)
+       updatetotal();
+    }
+}
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
         button.addEventListener('click', addToCartClicked)
-    }
-
+        }
 }
 
 function removeCartItem(event) {
@@ -37,7 +63,10 @@ function addToCartClicked(event) {
     updatetotal()
 }
 
-function addItemToCart(title, price, image) {
+function addItemToCart(title, price, image, quantity) {
+    if(quantity == null){
+        quantity = 1
+    }
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('items')[0]
@@ -55,7 +84,7 @@ function addItemToCart(title, price, image) {
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
+            <input class="cart-quantity-input" type="number" value=${quantity}>
             <button class="btn button-remove" type="button">REMOVE</button>
         </div>`
     cartRow.innerHTML = cartRowContents
@@ -69,47 +98,62 @@ function updatetotal() {
     var rows = cartItemContainer.getElementsByClassName('cart-row')
     var total = 0;
     var itemTitle = '';
+    var condApple = false;
+    var condBanana = false;
+    var condTp = false;
+    var condChicken = false;
+    var condPotatoe = false;
     for (var i = 0; i < rows.length; i++) {
         var cartRow = rows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
-        total = total + (price * quantity)
         itemTitle = cartRow.getElementsByClassName('cart-item-title')[0].innerText
+        if(itemTitle == "Apple"){
+            condApple = true;
+            cartData.apple = quantity;
+        }
+        if(itemTitle == "Banana"){
+            condBanana = true;
+            cartData.banana = quantity;
+        }
+        if(itemTitle == "Toilet Papper"){
+            condTp = true;
+            cartData.tp = quantity;
+        }
+        if(itemTitle == "Chicken Breast"){
+            condChicken = true;
+            cartData.chicken = quantity;
+        }if(itemTitle == "Potatoes"){
+            condPotatoe = true;
+            cartData.potatoe = quantity;
+        }
+        total = total + (price * quantity)
     }
-    var button = event.target
-    var shopItem = button.parentElement.parentElement
-    if(itemTitle == "Apple"){
-    localStorage.setItem("appleQuantity", quantity)
-    var apples = localStorage.getItem("appleQuantity");
+    if(condApple == false){
+        delete cartData.apple;
     }
-
-    if(itemTitle == "Toilet Papper"){
-        localStorage.setItem("toiletPapperQuantity", quantity)
-        var toiletPapper = localStorage.getItem("toiletPapperQuantity");
+    if(condBanana == false){
+        delete cartData.banana;
     }
-
-    if(itemTitle == "Toilet Papper"){
-        localStorage.setItem("toiletPapperQuantity", quantity)
-        var toiletPapper = localStorage.getItem("toiletPapperQuantity");
+    if(condTp == false){
+        delete cartData.tp;
     }
-
-    if(itemTitle == "Potatoes"){
-        localStorage.setItem("potatoeQuantity", quantity)
-        var potatoe = localStorage.getItem("potatoeQuantity");
-
+    if(condChicken == false){
+        delete cartData.chicken;
     }
-
-    if(itemTitle == "Chicken Breast"){
-        localStorage.setItem("chickenQuantity", quantity)
-        var chicken = localStorage.getItem("chickenQuantity");
-
+    if(condPotatoe == false){
+        delete cartData.potatoe;
     }
-
+    // var button = event.target
+    // var shopItem = button.parentElement.parentElement;
     total = Math.round(total * 100) / 100
+
+    cartData.totalPrice = total;
+    var cartText = JSON.stringify(cartData);
+    localStorage.setItem("cartData", cartText);
+    localStorage.getItem("cartData");
     var cartPrice = document.getElementsByClassName('cart-total-price')[0], totalPrice
-    localStorage.setItem("price", JSON.stringify(total))
-    var totalPrice = localStorage.getItem("price");
-    cartPrice.innerHTML = totalPrice
+    cartPrice.innerHTML = total;
 } 
