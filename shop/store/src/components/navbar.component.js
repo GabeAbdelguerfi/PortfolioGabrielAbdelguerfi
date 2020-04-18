@@ -13,10 +13,10 @@ export default class Navbar extends Component {
           <Link to="/" className="nav-link">Products</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/create" className="nav-link">My favorites</Link>
+          <Link to="/favorites" className="nav-link">My favorites</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/store" className="nav-link">Cart</Link>
+          <Link to="/cart" className="nav-link">Cart</Link>
           </li>
         </ul>
         </div>

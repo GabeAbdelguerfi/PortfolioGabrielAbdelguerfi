@@ -16,8 +16,8 @@ function App() {
       <br/>
       <Route path="/" exact component={ProductsList} />
       <Route path="/edit/:id" component={EditProducts} />
-      <Route path="/create" component={CreateProducts} />
-      <Route path="/store" component={CreateStore} />
+      <Route path="/favorites" component={CreateProducts} />
+      <Route path="/cart" component={CreateStore} />
       </div>
     </Router>
   );
