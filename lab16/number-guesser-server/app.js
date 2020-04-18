@@ -13,6 +13,7 @@ app.use(localhostHandler);
 
 function localhostHandler(request, response, next){
     response.header('Access-Control-Allow-Origin', '*');
+    next();
 }
 
 app.listen(port);
