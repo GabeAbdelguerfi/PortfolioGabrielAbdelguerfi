@@ -5,11 +5,11 @@ const port = process.env.PORT || 3000;
 const routes = require('./routes/game.routes');
 const app = express();
 
+app.use(localhostHandler);
 app.use('/api/game', routes);
 app.use( bodyParser.json() );
 app.use( bodyParser.json());
 
-app.use(localhostHandler);
 
 function localhostHandler(request, response, next){
     response.header('Access-Control-Allow-Origin', '*');
