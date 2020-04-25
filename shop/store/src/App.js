@@ -6,7 +6,7 @@ import Navbar from "./components/navbar.component"
 import ProductsList from "./components/product-list.component";
 import EditProducts from "./components/edit-product.component";
 import CreateProducts from "./components/create-product.component";
-import CreateStore from "./components/create-store.component";
+import CreateStore from "./components/create-user.component";
 
 function App() {
   return (

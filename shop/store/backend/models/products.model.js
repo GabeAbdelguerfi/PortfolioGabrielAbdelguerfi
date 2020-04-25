@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const productsSchema = new Schema({
   itemname: { type: String, required: true },
   price: { type: String, required: true },
+  imageUrl: {type: String, required: true},
 }, {
   timestamps: true,
 });

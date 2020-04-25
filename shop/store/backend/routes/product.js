@@ -10,10 +10,12 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const itemname = req.body.itemname;
   const price = req.body.price;
+  const imageUrl = req.body.imageUrl;
 
   const newproduct = new Product({
     itemname,
     price,
+    imageUrl
   });
 
       newproduct.save()
@@ -38,6 +40,7 @@ router.route('/add').post((req, res) => {
         .then(products => {
           products.itemname = req.body.itemname;
           products.price = req.body.price;
+          products.imageUrl = req.body.imageUrl;
           
         products.save()
         .then(() => res.json('Product updated!'))

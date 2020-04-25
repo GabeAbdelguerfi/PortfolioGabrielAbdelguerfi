@@ -1,7 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import Axios from 'axios';
 export default class Navbar extends Component {
+
+  state = {
+    itemname: '',
+    price: '',
+    imageUrl: '',
+    products: []
+
+}
+componentDidMount = () =>{
+    this.getProductList();
+};
+
+getProductList = () => {
+    Axios.get('http://localhost:5000/products')
+    .then((response) => {
+        const data = response.data;
+        this.setState({products: data});
+        console.log("Data has been received!");
+    })
+    .catch(() => {
+        alert('Error retrieving data!')
+    });
+}
+
+displayProducts = (products) => {
+
+    if(!products.length) return null;
+
+    return products.map((product, index) => (
+        <div key={index}>
+            <h3>{product.itemname}</h3>
+            <p>{product.price}</p>
+        </div>
+));
+};
 
   render() {
     return (

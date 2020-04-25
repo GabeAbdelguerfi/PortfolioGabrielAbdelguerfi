@@ -5,7 +5,7 @@ const mainMenu = function(){
                     <button id='join-game-button'>Join Game</button>
                     </section>`
     view.innerHTML = html;
-    addController('new-game-button');
+    addController('new-game-button', 'join-game-button');
 
 }
 
@@ -21,5 +21,43 @@ const newGameMenu = function(){
 }
 
 const viewGame = function(){
-    console.log(gameID, min, max);
+    const view = document.getElementById('view');
+    const html = `<section>
+                    <h3>Game ID: ${gameID}</h3>
+                    <p> Min: ${min} Max: ${max}</p>
+                    <input type=number id='guess-input'>
+                    <button id='submit-guess-button'>Submit</button>
+                    <ul id='clues-list'></ul>
+                    </section>`
+                    view.innerHTML = html;
+                    addController('submit-guess-button');
+                    if(gameover) gameOverMenu('You lose!')
+}
+
+const joinGameMenu = function(){
+    const view = document.getElementById('view');
+    const html = `<section>
+                    Game ID: <input id='room-code' type=text value='GameID'>
+                    <button id='find-game-button'>Join</button>
+                    </section>`
+                    view.innerHTML = html;
+                    addController('find-game-button');
+}
+
+const viewClue = function(clue, guess){
+    clueList = document.getElementById('clues-list');
+    clueList.innerHTML += `<li>${guess} is ${clue}</li>`
+}
+
+const gameOverMenu = function(result){
+    const view = document.getElementById('view');
+    const html = `<section>
+                    <h3>Game ID: ${gameID}</h3>
+                    <p>Game Over: ${result}</p>
+                    <button id='reset-game-button'>Replay</button>
+                    <button id='quit-game-button'>Main Menu</button>
+                    </section>`
+    view.innerHTML = html;
+    addController('reset-game-button', 'quit-game-button');
+                    
 }
