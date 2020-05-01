@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Axios from 'axios';
 import '../App.css';
+import SearchFeature from './SearchFeature';
 
 export default class ProductList extends Component {
     state = {
@@ -10,6 +11,7 @@ export default class ProductList extends Component {
         products: []
 
     }
+
 
 
     componentDidMount = () =>{
@@ -40,13 +42,28 @@ export default class ProductList extends Component {
                 <button class="btn btn-primary"  /*onclick={addToCart}*/ type="button">ADD TO CART</button>
             </div>
     ));
+    }
+    searchFeature = () => {
+    return (
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 
-    
-    };
+                <SearchFeature
+                    // refreshFunction={updateSearchTerms}
+                />
+
+            </div>
+    )
+    }
+
+    updateSearchTerms = () =>{
+
+    }
+
     render() {
         console.log('State', this.state)
         return (
             <div>
+                {this.searchFeature()}
                 {this.displayProducts(this.state.products)}
             </div>
         )
