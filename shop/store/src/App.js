@@ -6,7 +6,8 @@ import Navbar from "./components/navbar.component"
 import ProductsList from "./components/product-list.component";
 import EditProducts from "./components/edit-product.component";
 import CreateProducts from "./components/create-product.component";
-import CreateStore from "./components/create-user.component";
+import userLogin from "./components/create-user.component";
+import DetailProductPage from './views/DetailProductPage';
 
 function App() {
   return (
@@ -16,8 +17,8 @@ function App() {
       <br/>
       <Route path="/" exact component={ProductsList} />
       <Route path="/edit/:id" component={EditProducts} />
-      <Route path="/favorites" component={CreateProducts} />
-      <Route path="/cart" component={CreateStore} />
+      <Route path="/register" component={userLogin} />
+      <Route exact path="/products/:productId" component={(DetailProductPage)} />
       </div>
     </Router>
   );

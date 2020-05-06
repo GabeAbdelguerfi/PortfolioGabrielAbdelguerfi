@@ -35,11 +35,12 @@ export default class ProductList extends Component {
         if(!products.length) return null;
 
         return products.map((product, index) => (
-            <div class="shop-item container" key={index}>
-                <h3 class="shop-item pl-5">{product.itemname}</h3>
-                <img class="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
-                <p class="item-price pl-5">${product.price}</p>
-                <button class="btn btn-primary"  /*onclick={addToCart}*/ type="button">ADD TO CART</button>
+            <div className="shop-item container" key={index}>
+                <h3 className="shop-item pl-5">{product.itemname}</h3>
+                <img className="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
+                <p className="item-price pl-5">${product.price}</p>
+                <a href={`/products/${product._id}`}>More Information</a>
+                <button className="btn btn-primary"  /*onclick={addToCart}*/ type="button">ADD TO CART</button>
             </div>
     ));
     }

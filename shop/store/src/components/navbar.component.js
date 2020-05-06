@@ -48,10 +48,7 @@ displayProducts = (products) => {
           <Link to="/" className="nav-link">Products</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/favorites" className="nav-link">My favorites</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/cart" className="nav-link">Cart</Link>
+          <Link to="/register" className="nav-link">Register</Link>
           </li>
         </ul>
         </div>

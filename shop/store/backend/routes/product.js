@@ -11,6 +11,7 @@ router.route('/add').post((req, res) => {
   const itemname = req.body.itemname;
   const price = req.body.price;
   const imageUrl = req.body.imageUrl;
+  const description = req.body.description;
 
   const newproduct = new Product({
     itemname,
@@ -34,6 +35,32 @@ router.route('/add').post((req, res) => {
         .then(() => res.json('Product deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
     });
+
+    router.get("/products_by_id", (req, res) => {
+      let type = req.query.type
+      let productIds = req.query.id
+  
+      console.log("req.query.id", req.query.id)
+      console.log("hi")
+      if (type === "array") {
+          let ids = req.query.id.split(',');
+          productIds = [];
+          productIds = ids.map(item => {
+              return item
+          })
+      }
+  
+      console.log("productIds", productIds)
+  
+  
+      //we need to find the product information that belongs to product Id 
+      Product.find({ '_id': { $in: productIds } })
+          .populate('writer')
+          .exec((err, product) => {
+              if (err) return res.status(400).send(err)
+              return res.status(200).send(product)
+          })
+  });
     
     router.route('/update/:id').post((req, res) => {
       Product.findById(req.params.id)
@@ -41,6 +68,7 @@ router.route('/add').post((req, res) => {
           products.itemname = req.body.itemname;
           products.price = req.body.price;
           products.imageUrl = req.body.imageUrl;
+          products.description = req.body.description;
           
         products.save()
         .then(() => res.json('Product updated!'))
