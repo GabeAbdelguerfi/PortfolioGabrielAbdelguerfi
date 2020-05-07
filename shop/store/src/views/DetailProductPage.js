@@ -17,15 +17,19 @@ function DetailProductPage(props) {
 
     return (
         
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="align-baseline text-center">
-                <h1 classname="">{Product.itemname}</h1>
-                <img className="item-image" src={Product.imageUrl} width="130px" height="130px" alt="..."></img>
-                <p className="">${Product.price}</p>
-                <h1 className="pr-5">Description</h1>
-                <p className="">{Product.description}</p>
+        <div className='details-container'>
+            <div className='detail-img-container float-lg-left'>
+                <img className="item-image detail-image" src={Product.imageUrl} alt="..."></img>
             </div>
+            <div class='container'>
+                <h1 className="detail-name block">{Product.itemname}</h1>
+                <p className="detail-price block">Price: ${Product.price}</p>
+                <div class='block'>
+                    <h2 className="detail-desc-title">Description</h2>
+                    <p className="detail-desc inline">{Product.description}</p>    
+                </div>
             </div>
+        </div>
     )
 
 }

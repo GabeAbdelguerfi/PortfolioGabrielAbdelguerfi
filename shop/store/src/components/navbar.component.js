@@ -40,8 +40,8 @@ displayProducts = (products) => {
 
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">Shopping Application</Link>
+      <nav className="navbar navbar-expand-lg">
+        <Link to="/" className="navbar-brand"><img src='../../../public/website_logo_white.png' alt='Shopping Application'></img></Link>
         <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">

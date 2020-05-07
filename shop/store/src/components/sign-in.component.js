@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateUser extends Component {
+export default class SignIn extends Component {
   constructor(props) {
     super(props);
 
@@ -22,8 +22,8 @@ export default class CreateUser extends Component {
   }
 
   onChangePassword(e) {
-    this.setState ({
-      password: e.target.value
+    this.setState({
+        password: e.target.value
     })
   }
 
@@ -37,46 +37,42 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
-    axios.post('http://localhost:5000/users/add', user)
-      .then(res => console.log(res.data));
+    let variable = axios.post('http://localhost:5000/users/', {
+        user
+    })
+    .then(res => console.log(res.data));
+
+    console.log(variable);
 
     this.setState({
-      username: ''
+      username: '',
+      password: ''
     })
   }
 
   render() {
     return (
       <div className='container col-6'>
-        <h2 className='form-title'>Sign Up</h2>
+        <h2 className='form-title'>Log In</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>Username: </label>
             <input  type="text"
                 required
                 className="form-control"
-                defaultValue={this.state.username}
+                value={this.state.username}
                 onChange={this.onChangeUsername}
-                placeholder='username'
                 />
             <label>Password: </label>
             <input type='password'
                 required
-                className='form-control'
-                defaultValue={this.onChangePassword}
+                className="form-control"
+                value={this.state.password}
                 onChange={this.onChangePassword}
-                placeholder='password'
-            />
-            <label>Confirm Password: </label>
-            <input type='password'
-                required
-                className='form-control'
-                onChange={this.onChangePassword}
-                placeholder='re-type password'
-            />
+                />
           </div>
           <div className="form-group">
-            <input type="submit" value="Create User" className="btn btn-primary" />
+            <input type="submit" value="Sign In" className="btn btn-primary" />
           </div>
         </form>
       </div>

@@ -35,12 +35,15 @@ export default class ProductList extends Component {
         if(!products.length) return null;
 
         return products.map((product, index) => (
-            <div className="shop-item container" key={index}>
-                <h3 className="shop-item pl-5">{product.itemname}</h3>
-                <img className="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
-                <p className="item-price pl-5">${product.price}</p>
-                <a href={`/products/${product._id}`}>More Information</a>
-                <button className="btn btn-primary"  /*onclick={addToCart}*/ type="button">ADD TO CART</button>
+            <div className="shop-item container col col-6 md-col-12" key={index}>
+                <div class='container inner-element'>
+                    <h3 className="shop-item">{product.itemname}</h3>
+                    <img className="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
+                    <p className="item-price">Price: ${product.price}</p>
+                    <a href={`/products/${product._id}`}>More Information</a>
+                    
+                    <button className="btn add-cart-button"  /*onclick={addToCart}*/ type="button">ADD TO CART</button>
+                </div>
             </div>
     ));
     }
@@ -65,7 +68,9 @@ export default class ProductList extends Component {
         return (
             <div>
                 {this.searchFeature()}
-                {this.displayProducts(this.state.products)}
+                <div class='row'>
+                    {this.displayProducts(this.state.products)}
+                </div>
             </div>
         )
     }
