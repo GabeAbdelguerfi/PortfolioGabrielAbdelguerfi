@@ -36,7 +36,7 @@ export default class ProductList extends Component {
 
         return products.map((product, index) => (
             <div className="shop-item container col col-6 md-col-12" key={index}>
-                <div class='container inner-element'>
+                <div className='container inner-element'>
                     <h3 className="shop-item">{product.itemname}</h3>
                     <img className="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
                     <p className="item-price">Price: ${product.price}</p>
@@ -68,7 +68,7 @@ export default class ProductList extends Component {
         return (
             <div>
                 {this.searchFeature()}
-                <div class='row'>
+                <div className='row'>
                     {this.displayProducts(this.state.products)}
                 </div>
             </div>

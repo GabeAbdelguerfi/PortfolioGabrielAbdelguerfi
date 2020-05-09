@@ -15,6 +15,22 @@ export default class SignIn extends Component {
     }
   }
 
+  errorMsg() {
+      return (
+          <div className='col-6 mb-5 container error'>
+              Successfully Created Account!
+          </div>
+      )
+  }
+
+  successMsg(props) {
+      return (
+        <div className='col-6 mb-5 container success'>
+            Successfully Created Account!
+        </div>
+      )
+  }
+
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
@@ -49,6 +65,7 @@ export default class SignIn extends Component {
       password: ''
     })
   }
+
 
   render() {
     return (
