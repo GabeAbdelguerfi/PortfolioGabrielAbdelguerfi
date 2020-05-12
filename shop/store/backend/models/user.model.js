@@ -8,7 +8,12 @@ var userSchema = new Schema({
     // unique: true,
     // trim: true,
     // minlength: 3,
-  password: String
+  password: String,
+  balance: {
+    "type": Number,
+    "default": 500.00
+  },
+  cart: []
 });
 
 var User = mongoose.model('User', userSchema);
