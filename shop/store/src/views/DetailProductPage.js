@@ -21,10 +21,10 @@ function DetailProductPage(props) {
             <div className='detail-img-container float-lg-left'>
                 <img className="item-image detail-image" src={Product.imageUrl} alt="..."></img>
             </div>
-            <div class='container'>
+            <div className='container'>
                 <h1 className="detail-name block">{Product.itemname}</h1>
                 <p className="detail-price block">Price: ${Product.price}</p>
-                <div class='block'>
+                <div className='block'>
                     <h2 className="detail-desc-title">Description</h2>
                     <p className="detail-desc inline">{Product.description}</p>    
                 </div>

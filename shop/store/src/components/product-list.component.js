@@ -4,6 +4,7 @@ import '../App.css';
 import SearchFeature from './SearchFeature';
 
 export default class ProductList extends Component {
+
     state = {
         itemname: '',
         price: '',
@@ -11,8 +12,6 @@ export default class ProductList extends Component {
         products: []
 
     }
-
-
 
     componentDidMount = () =>{
         this.getProductList();
@@ -23,7 +22,6 @@ export default class ProductList extends Component {
         .then((response) => {
             const data = response.data;
             this.setState({products: data});
-            console.log("Data has been received!");
         })
         .catch(() => {
             alert('Error retrieving data!')
@@ -40,9 +38,18 @@ export default class ProductList extends Component {
                     <h3 className="shop-item">{product.itemname}</h3>
                     <img className="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
                     <p className="item-price">Price: ${product.price}</p>
-                    <a href={`/products/${product._id}`}>More Information</a>
-                    
-                    <button className="btn add-cart-button"  /*onclick={addToCart}*/ type="button">ADD TO CART</button>
+                    <a href={`/detail/${this.props.match.params.user}/${product._id}`}>More Information</a>
+                    <button className="btn add-cart-button" onClick={() => {
+                        console.log('clicked')
+                        Axios.post('http://localhost:5000/users/add-to-cart', {
+                                user: this.props.match.params.user,
+                                p_id: product._id 
+                            }).then ((res) => {
+                                console.log('testing')
+                            }).catch((res) => {
+                                console.log(res)
+                            })
+                    }} type="button">ADD TO CART</button>
                 </div>
             </div>
     ));
@@ -50,21 +57,17 @@ export default class ProductList extends Component {
     searchFeature = () => {
     return (
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-
                 <SearchFeature
                     // refreshFunction={updateSearchTerms}
                 />
-
             </div>
-    )
-    }
+    )}
 
     updateSearchTerms = () =>{
 
     }
 
     render() {
-        console.log('State', this.state)
         return (
             <div>
                 {this.searchFeature()}

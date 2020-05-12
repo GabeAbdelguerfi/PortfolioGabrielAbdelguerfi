@@ -51,12 +51,15 @@ export default class SignIn extends Component {
       password: this.state.password
     }
 
-    console.log(user);
-
     let variable = axios.post('http://localhost:5000/users/', {
         user
     })
-    .then(res => console.log(res.data));
+    .then(res => {
+      console.log(res.data.success)
+      if ( res.data.success ) {
+        this.props.history.push('/');
+      }
+    });
 
     console.log(variable);
 

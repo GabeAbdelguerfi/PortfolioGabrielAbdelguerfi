@@ -17,10 +17,11 @@ function App() {
       <Navbar />
       <br/>
       <Route path="/" exact component={ProductsList} />
+      <Route path='/products/:user' component={ProductsList} />
       <Route path="/edit/:id" component={EditProducts} />
       <Route path="/register" component={userLogin} />
       <Route path='/sign-in' component={signIn} />
-      <Route exact path="/products/:productId" component={(DetailProductPage)} />
+      <Route exact path="/detail/:user/:productId" component={(DetailProductPage)} />
       </div>
     </Router>
   );
