@@ -43,6 +43,9 @@ export default class CreateUser extends Component {
           console.log( 'response : ' + res ) 
           this.props.history.push(`/products/${this.state.username}`);
         })
+      .catch( res => {
+        console.log(res)
+      })
   }
 
   render() {

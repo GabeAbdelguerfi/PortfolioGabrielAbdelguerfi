@@ -15,22 +15,6 @@ export default class SignIn extends Component {
     }
   }
 
-  errorMsg() {
-      return (
-          <div className='col-6 mb-5 container error'>
-              Successfully Created Account!
-          </div>
-      )
-  }
-
-  successMsg(props) {
-      return (
-        <div className='col-6 mb-5 container success'>
-            Successfully Created Account!
-        </div>
-      )
-  }
-
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
@@ -51,24 +35,19 @@ export default class SignIn extends Component {
       password: this.state.password
     }
 
-    let variable = axios.post('http://localhost:5000/users/', {
+    console.log(user)
+
+    axios.post('http://localhost:5000/users/', {
         user
     })
     .then(res => {
       console.log(res.data.success)
       if ( res.data.success ) {
-        this.props.history.push('/');
+        console.log('login username : ' + this.state.username)
+        this.props.history.push(`/products/${this.state.username}`);
       }
-    });
-
-    console.log(variable);
-
-    this.setState({
-      username: '',
-      password: ''
-    })
+    }); 
   }
-
 
   render() {
     return (

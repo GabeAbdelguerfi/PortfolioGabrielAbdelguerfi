@@ -39,17 +39,6 @@ export default class ProductList extends Component {
                     <img className="item-image" src={product.imageUrl} width="130px" height="130px" alt="..."></img>
                     <p className="item-price">Price: ${product.price}</p>
                     <a href={`/detail/${this.props.match.params.user}/${product._id}`}>More Information</a>
-                    <button className="btn add-cart-button" onClick={() => {
-                        console.log('clicked')
-                        Axios.post('http://localhost:5000/users/add-to-cart', {
-                                user: this.props.match.params.user,
-                                p_id: product._id 
-                            }).then ((res) => {
-                                console.log('testing')
-                            }).catch((res) => {
-                                console.log(res)
-                            })
-                    }} type="button">ADD TO CART</button>
                 </div>
             </div>
     ));

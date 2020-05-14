@@ -14,7 +14,19 @@ router.route('/').post((req, res, next) => {
 });
 
 router.route('/add').post((req, res) => {
-  const newUser = new User({username: req.body.username}, {password: req.body.password},{blance: 500.00}, {cart: []});
+  console.log('username : ' + req.body.username)
+  console.log('password : ' + req.body.password)
+  const newUser = new User({
+    username: req.body.username, 
+    password: req.body.password, 
+    balance: 500.00, 
+    cart: []
+  });
+
+  console.log('username : ' + newUser.username)
+  console.log('password : ' + newUser.password)
+  console.log('balance  : ' + newUser.balance)
+  console.log('cart     : ' + newUser.cart)
 
   newUser.save()
     .then(() => res.json('User added!'))

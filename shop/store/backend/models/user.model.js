@@ -9,10 +9,7 @@ var userSchema = new Schema({
     // trim: true,
     // minlength: 3,
   password: String,
-  balance: {
-    "type": Number,
-    "default": 500.00
-  },
+  balance: Number,
   cart: []
 });
 

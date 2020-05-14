@@ -50,6 +50,9 @@ displayProducts = (products) => {
           <li className="navbar-item">
           <Link to="/register" className="nav-link">Register</Link>
           </li>
+          <li className='navbar-item'>
+            <Link to='/sign-in' className='nav-link'>Login</Link>
+          </li>
         </ul>
         </div>
       </nav>

@@ -9,6 +9,7 @@ import EditProducts from "./components/edit-product.component";
 import userLogin from "./components/create-user.component";
 import DetailProductPage from './views/DetailProductPage';
 import signIn from "./components/sign-in.component.js";
+import Cart from './components/cart.component.js';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <br/>
       <Route path="/" exact component={ProductsList} />
       <Route path='/products/:user' component={ProductsList} />
+      <Route path='/cart/:user' component={Cart} />
       <Route path="/edit/:id" component={EditProducts} />
       <Route path="/register" component={userLogin} />
       <Route path='/sign-in' component={signIn} />
