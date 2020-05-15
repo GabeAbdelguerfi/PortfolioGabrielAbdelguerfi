@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import Axios from 'axios';
 import '../App.css';
 import SearchFeature from './SearchFeature';

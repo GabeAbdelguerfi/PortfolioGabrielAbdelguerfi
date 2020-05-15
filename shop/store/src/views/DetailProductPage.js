@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 //import { useDispatch } from 'react-redux';
 import Axios from 'axios'
-import { Redirect } from 'react-router-dom'
+
 
 function DetailProductPage(props) {
+
     // const dispatch = useDispatch();
     const productId = props.match.params.productId
-
     const [Product, setProduct] = useState([])
     useEffect(() => {
         Axios.get(`http://localhost:5000/products/${productId}`)
@@ -16,7 +16,7 @@ function DetailProductPage(props) {
             })
     }, [])
 
-    try {
+    try{
     return (
         <div className='details-container'>
             <div className='detail-img-container float-lg-left'>
@@ -32,12 +32,12 @@ function DetailProductPage(props) {
                 <button className="btn add-cart-button" onClick={() => {
                         try {
                             Axios.post('http://localhost:5000/users/add-to-cart', {
-                                    user: this.props.match.params.user,
-                                    p_id: Product._id 
+                                    user: props.match.params.user,
+                                    p_id: Product 
                                 }).then ((res) => {
                                     console.log('testing')
                                 }).catch((res) => {
-                                    this.props.history.push(`/sign-in`)
+                                    props.history.push(`/sign-in`)
                                 })
                         } catch (err) {
                             console.log(err)
@@ -45,7 +45,7 @@ function DetailProductPage(props) {
                     }} type="button">ADD TO CART</button>     
                     <button className="btn add-cart-button" onClick={() => {
                         try {
-                            this.props.history.push(`/cart/${this.props.match.params.user}`)
+                            props.history.push(`/cart/${props.match.params.user}`)
                         } catch (err) {
                             console.log(err)
                         }
@@ -69,12 +69,12 @@ function DetailProductPage(props) {
                     <button className="btn add-cart-button" onClick={() => {
                             try {
                                 Axios.post('http://localhost:5000/users/add-to-cart', {
-                                        user: this.props.match.params.user,
-                                        p_id: Product._id 
+                                        user: props.match.params.user,
+                                        p_id: Product
                                     }).then ((res) => {
                                         console.log('testing')
                                     }).catch((res) => {
-                                        this.props.history.push(`/sign-in`)
+                                        props.history.push(`/sign-in`)
                                     })
                             } catch (err) {
                                 console.log(err)
@@ -82,16 +82,14 @@ function DetailProductPage(props) {
                         }} type="button">ADD TO CART</button>     
                         /* <button className="btn" onClick={() => {
                             try {
-                                this.props.history.push(`/cart/${this.props.match.params.user}`)
+                                props.history.push(`/cart/${props.match.params.user}`)
                             } catch (err) {
                                 console.log(err)
                             }
-                        }} type="button"></button>            */}
+                        }} type="button"></button>}
                 </div>
             </div>
         )
     }
-
 }
-
 export default DetailProductPage

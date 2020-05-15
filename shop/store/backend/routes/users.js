@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
+let Product = require('../models/products.model');
 
 router.route('/').post((req, res, next) => {
   User.findOne({username: req.body.user.username})
@@ -33,6 +34,16 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/get-cart').post( ( req, res ) => {
+  console.log( 'username : ' + req.body.username )
+  
+  
+  User.findOne( { username: req.body.username } )
+    .then ( ( user ) => {
+      res.json(user.cart)
+    })
+})
+
 router.route('/add-to-cart').post((req, res) => {
   User.findOne({username: req.body.user})
     .then ( (users) => {
@@ -45,14 +56,26 @@ router.route('/add-to-cart').post((req, res) => {
 })
 
 router.route('/remove-from-cart').post((req, res) => {
-  User.findOne({username: req.body.user})
-    .then ((users => {
-      let arr = users.cart;
-      let index = arr.indexOf(req.body.p_id)
-      arr.splice(index, 1)
+  User.findOne({username: req.body.username})
+    .then ((users) => {
+      let arr = [{}]
       users.cart = arr;
       users.save()
-    })
-    .catch((err) => { console.log(err) }))
+      res.json({success: true})
+    }).catch((err) => { console.log(err) })
 })
+
+router.route('/checkout').post( (req, res) => {
+  console.log('checkout called')
+  User.findOne({username: req.body.username})
+    .then( (user) => {
+      console.log('user balance : ' + user.balance)
+      console.log('object price : ' + res.body.price)
+      user.balance = user.balance - res.body.price;
+    })
+    .catch (( err ) => {
+      res.json({error: err})
+    })
+})
+
 module.exports = router;

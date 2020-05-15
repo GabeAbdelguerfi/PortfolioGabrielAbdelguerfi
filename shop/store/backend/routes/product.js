@@ -52,7 +52,6 @@ router.route('/add').post((req, res) => {
   
       console.log("productIds", productIds)
   
-  
       //we need to find the product information that belongs to product Id 
       Product.find({ '_id': { $in: productIds } })
           .populate('writer')
@@ -61,19 +60,26 @@ router.route('/add').post((req, res) => {
               return res.status(200).send(product)
           })
   });
+
+  router.route('/get-product/').post( ( req, res ) => {
+    Product.findOne({ _id : req.body.p_id})
+      .then ( ( res ) => {
+        res.json(res)
+      }) 
+  })
     
-    router.route('/update/:id').post((req, res) => {
-      Product.findById(req.params.id)
-        .then(products => {
-          products.itemname = req.body.itemname;
-          products.price = req.body.price;
-          products.imageUrl = req.body.imageUrl;
-          products.description = req.body.description;
-          
-        products.save()
-        .then(() => res.json('Product updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+  router.route('/update/:id').post((req, res) => {
+    Product.findById(req.params.id)
+      .then(products => {
+        products.itemname = req.body.itemname;
+        products.price = req.body.price;
+        products.imageUrl = req.body.imageUrl;
+        products.description = req.body.description;
+        
+      products.save()
+      .then(() => res.json('Product updated!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  })
+  .catch(err => res.status(400).json('Error: ' + err));
+  });
 module.exports = router;
